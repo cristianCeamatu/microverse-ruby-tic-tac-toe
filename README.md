@@ -1,6 +1,6 @@
-# Bubble Sort
+# The Tic-Tac-Toe
 
-> For this project, we created two **sorting algorithms** that use the [bubble sort](https://en.wikipedia.org/wiki/Bubble_sort) method. 
+> For this project,
 
 This side-by-side comparative method is seen in the GIF image below.
 
@@ -9,18 +9,19 @@ This side-by-side comparative method is seen in the GIF image below.
 ![screenshot](.github/bubble_sort.png)
 ![screenshot](.github/bubble_sort_by2.png)
 
-> The second bubble sort method sorts an array of strings by the length of each element using the "yield" keyword and a code block.
+> The Tic-Tac-Toe Game
 
-*Note: The first algorithm exits once an iteration is passed without any swaps made, signalling that the array is completely sorted. The second algorithm iterates the maximum possible number times (array.length - 1) before exiting. While both methods are suitable for the purposes of this project, it should be noted the first method is better practice in that it does not run code unnecessarily.*
+_Note: The first algorithm exits once an iteration is passed without any swaps made, signalling that the array is completely sorted. The second algorithm iterates the maximum possible number times (array.length - 1) before exiting. While both methods are suitable for the purposes of this project, it should be noted the first method is better practice in that it does not run code unnecessarily._
 
 ## Built With
+
 - Ruby
 - VSCode
 - Rubocop
 
 ## Live Demo
 
-To quickly see our project in action, visit the [live demo](https://repl.it/@cristianCeamatu/Bubble-Sort#main.rb) on repl.it.
+To quickly see our project in action, visit the [live demo]() on repl.it.
 
 ## Getting Started
 
@@ -38,19 +39,19 @@ To get this project up and running, you must already have ruby installed on your
 
 3. Copy and paste the following code into the Terminal:
 
-    git clone https://github.com/cristianCeamatu/microverse-bubble-sort.git
+   git clone https://github.com/cristianCeamatu/microverse-bubble-sort.git
 
 4. Hit enter.
 
 5. Once the repository has been cloned, navigate inside the repository and type:
 
-    ruby main.rb
-    
-    This will run the code, printing the output of our tests to the terminal. 
+   ruby main.rb
+
+   This will run the code, printing the output of our tests to the terminal.
 
 6. To change those tests, simply open main.rb in a code editor and modify the values stored in the test_array and test_run variables.
 
-6. Enjoy sorted arrays of data for the rest of your life.
+7. Enjoy sorted arrays of data for the rest of your life.
 
 ## Authors
 
@@ -60,14 +61,15 @@ To get this project up and running, you must already have ruby installed on your
 - Twitter: [@CeamatuV](https://twitter.com/CeamatuV)
 - Linkedin: [Ceamatu Cristian Viorel](https://www.linkedin.com/in/ceamatu-cristian-viorel-7a5469136/)
 
-👤**Muhammed Cihad Kurel**
-- Github: [@mcihadkurel](https://github.com/mcihadkurel)
-- Twitter: [@mece_ka](https://twitter.com/mece_ka)
-- LinkedIn: [@Muhammed Cihad Kurel](https://www.linkedin.com/in/muhammed-cihad-8187581a8/)
+👤 **Amita Roy**
+
+- Github: [@Amita-Roy](https://github.com/Amita-Roy)
+- Twitter: [@AmitaRoy14](https://twitter.com/AmitaRoy14)
+- Linkedin: [Amita Roy](https://www.linkedin.com/in/amita-roy-3b823b68/)
 
 ## 🤝 Contributing
 
-The best way you can contribute to this project is by submitting an [issue](https://github.com/cristianCeamatu/microverse-bubble-sort/issues) to help us improve it!
+The best way you can contribute to this project is by submitting an [issue]() to help us improve it!
 
 ## Show your support
 
