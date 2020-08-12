@@ -3,7 +3,7 @@
 # Creat the Game, Board and Player classes
 # Create the Game and Board objects
 
-puts "Welcome to our Tic-Tac-toe game!"
+puts 'Welcome to our Tic-Tac-toe game!'
 
 sleep 1
 
@@ -43,36 +43,37 @@ sleep 2
 display_board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 # Winning combinations array will be in the Game object
-winning_combinations = [
-  [1, 2, 3],
-  [4, 5, 6],
-  [7, 8, 9],
-  [1, 4, 7],
-  [2, 5, 8],
-  [3, 6, 9],
-  [1, 5, 9],
-  [3, 5, 7]
-]
+
+# winning_combinations = [
+#   [1, 2, 3],
+#   [4, 5, 6],
+#   [7, 8, 9],
+#   [1, 4, 7],
+#   [2, 5, 8],
+#   [3, 6, 9],
+#   [1, 5, 9],
+#   [3, 5, 7],
+# ]
 
 # Set the current player and initialize a winner variable that we make it true if a player is winning after his turn
 current_player = first_player
-winner = nil
+# winner = nil
 
-round = 0
+# round = 0
 # Start while loop to keep getting inputs until any of the player wins or all the blocks are taken
 puts
 display_board.each_with_index do |element, index|
-  puts " #{element} " if index == 2 || index == 5 || index == 8
-  puts "-----------" if index == 2 || index == 5
-  print " #{element} |" if index != 2 && index != 5 && index != 8
+  puts " #{element} " if [2, 5, 8].include?(index)
+  puts '-----------' if [2, 5].include?(index)
+  print " #{element} |" unless [2, 5, 8].include?(index)
 end
 
 sleep 1
 
 puts
 puts "#{current_player}, please select the position for your move"
-selection = gets.chomp  # Validation for valid selection (num should 1 to 9 and not taken by other player)
-display_board[selection] = 'X'
+selection = gets.chomp.to_i # Validation for valid selection (num should 1 to 9 and not taken by other player)
+display_board[selection - 1] = 'X'
 
 # replace the number in the array with the selection of the current_player(current_player.sign)
 
@@ -88,18 +89,20 @@ winner = current_player
 # break the loop if the round > 8
 
 # After the loop breaks
+
 if winner.nil?
   # add the posibility to restart the game
   puts 'The result is a tie! Do you want to play again?'
-  answer = gets.chomp
+  # answer = gets.chomp
   # If the answer is Yes or Y we run the game again (Game.start)
 
 else
+  puts
   display_board.each_with_index do |element, index|
-    puts " #{element} " if index == 2 || index == 5 || index == 8
-    puts "-----------" if index == 2 || index == 5
-    print " #{element} |" if index != 2 && index != 5 && index != 8
+    puts " #{element} " if [2, 5, 8].include?(index)
+    puts '-----------' if [2, 5].include?(index)
+    print " #{element} |" unless [2, 5, 8].include?(index)
   end
-
+  puts
   puts "And the winner is #{winner}!"
 end
