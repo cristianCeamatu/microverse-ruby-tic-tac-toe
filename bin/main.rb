@@ -1,3 +1,3 @@
 #!/usr/bin/env ruby
 
-p 'Hello ruby'
+p 'Hello world!'
