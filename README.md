@@ -2,13 +2,13 @@
 
 > In this project, we are building a Tic Tac Toe game. The main goal is to put into practice the main concepts of Object Oriented Programming. Particularly, classes and access to their attributes.
 
-## This side-by-side comparative method is seen in the GIF image below.
+## You can see a short demo of the game in the GIF below.
 ![image](.github/captured.gif)
 
 ## The files structure of the project
 ![screenshot](.github/folder-structure.png)
 
-For this project, we wrote a Ruby script that allows the user to play a game of Tic, Tac, Toe in the Terminal.
+For this project, we wrote a Ruby executable script main.rb that allows the user to play the game of Tic, Tac, Toe in the Terminal.
 
 ## How To Play
 
@@ -52,15 +52,15 @@ To get your own copy of our project simply clone the repository to your local ma
 
 **Step 1**: Using the Command Line, navigate into the location where you would like to have the repository. Then enter the following line of code:
 
-_git clone <git@github.com:cristianCeamatu/microverse-ruby-tic-tac-toe.git>_
+`git clone <git@github.com:cristianCeamatu/microverse-ruby-tic-tac-toe.git>`
 
 **Step 2**: Once the repo has been cloned, navigate inside it by entering the following command:
 
-_cd microverse-ruby-tic-tac-toe_
+`cd microverse-ruby-tic-tac-toe`
 
 **Step 3**: Once in the root directory of the repository, simply enter the following line of code to start a game:
 
-_bin/main.rb_
+`bin/main.rb`
 
 From there, the game will begin, and the user need only follow the subsequent instructions that appear in the Terminal.
 
