@@ -77,7 +77,7 @@ The **./lib** folder contains subsidiary files that set up all of the classes an
 - **board.rb**, where the Board class is defined.
 - **utils.rb**, where the Utils module is defined.
 
-In addition to the above, the repo also contains .rubocop.yml for linting and an ./assets folder to store images used in this README.md file.
+In addition to the above, the repo also contains .rubocop.yml for linting.
 
 ## Authors
 
