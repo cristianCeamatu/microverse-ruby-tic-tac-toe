@@ -93,15 +93,12 @@ loop do
   sleep 1
   if winner.nil?
     puts 'The result is a tie!'
-    sleep 1
-    puts
-    puts 'Do you want to play again? (y or yes)'
   else
     puts "And the winner is #{winner.name} after #{round - 1} rounds!"
-    sleep 1
-    puts
-    puts 'Do you want to play again? (y or yes)'
   end
+  sleep 1
+  puts
+  puts 'Do you want to play again? (y or yes)'
   restart = gets.chomp.strip
   break unless %w[y yes].include?(restart)
 end
