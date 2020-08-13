@@ -1,24 +1,26 @@
 #!/usr/bin/env ruby
 
-# Creat the Game, Board and Player classes
-# Create the Game and Board objects
+require './lib/player'
 
-puts 'Welcome to our Tic-Tac-toe game!'
+puts 'Welcome to our Tic-Tac-Toe game!'
+
+sleep 1
+
+puts 'Developed by Cristian Ceamatu and Amita Roy'
 
 sleep 1
 
 # Create the Player objects based on their name
 puts "Player 1: What's your name?"
-player1 = gets.chomp # Validate the input and capitalize the first letter
+player1_name = gets.chomp # Validate the input and capitalize the first letter
 # Create a new player object with the received name
 
 puts "Player 2: What's your name?"
-player2 = gets.chomp # Validate the input and capitalize the first letter
-# Create a new player object with the received name
+player2_name = gets.chomp # Validate the input and capitalize the first letter
 
 sleep 1
 
-puts "Today's players will be #{player1} and #{player2}"
+puts "Today's players will be #{player1_name} and #{player2_name}"
 
 sleep 1
 
@@ -31,9 +33,16 @@ puts 'We will randomly select the first one to move in...'
 end
 
 # A random function will assign the character to both players. Like X for player1 and O for player2.
-first_player = rand(1..2) == 1 ? player1 : player2
-second_player = first_player == player1 ? player2 : player1
+first_player = rand(1..2) == 1 ? player1_name : player2_name
+second_player = first_player == player1_name ? player2_name : player1_name
 # After we decide the first player we give the X selection to the Player object
+player1 = Player.new(first_player, 'X')
+player2 = Player.new(second_player, 'O')
+
+p player1
+p player2
+
+# Create the Game and Board objects
 
 puts "#{first_player} you will start first with character X and #{second_player} will go second with character O"
 
