@@ -4,9 +4,9 @@
 
 This side-by-side comparative method is seen in the GIF image below.
 
-![image](.github/animation.gif)
+![image](.github/capture.gif)
 
-![screenshot](assets/images/replit.png)
+![screenshot](.github/folder-structure.png)
 
 For this project, we wrote a Ruby script that allows the user to play a game of Tic, Tac, Toe in the Terminal.
 
@@ -18,7 +18,7 @@ Each player is represented by a symbol, either 'X' or 'O'. The players then take
 
 The aim of the game is to have three of your symbols form a line, be it vertically, horizontally or diagonally, as illustrated in the image below.
 
-![A Winning Combination of Tic, Tac, Toe](./assets/game_instructions_image.jpg)
+![A Winning Combination of Tic, Tac, Toe](.github/winning-screenshot.webp)
 
 In the event that all 9 squares are taken without either player getting three of their symbols in a line, a draw is declared.
 
