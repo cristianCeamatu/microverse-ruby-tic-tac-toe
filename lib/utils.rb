@@ -7,11 +7,14 @@ module Utils
     input.strip
   end
 
-  def validate_selection(selection, board = nil)
-    return "Use numbers between 1 to 9" unless selection.between?(1, 9)
+  def validate_selection(selection, board)
+    return "Use numbers between 1 to 9" unless selection.between?(0, 8)
     return "The position has already been taken, please select another number" if board[selection].is_a?(String)
+
     selection
   end
-end
 
-include Utils
+  def indexes_of_sign(sign, board)
+    board.size.times.select { |index| board[index] == sign }
+  end
+end

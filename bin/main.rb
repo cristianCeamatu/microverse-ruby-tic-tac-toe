@@ -4,6 +4,8 @@ require "./lib/player"
 require "./lib/game"
 require "./lib/board"
 
+game = Game.new
+
 puts "Welcome to our Tic-Tac-Toe game!"
 
 sleep 1
@@ -12,13 +14,14 @@ puts "Developed by Cristian Ceamatu and Amita Roy"
 
 sleep 1
 
+
 valid_name1 = false
 while valid_name1 == false
   puts "Player 1: What's your name?"
   player1_name = gets.chomp
 
-  puts Game.validate_name(player1_name) if Game.validate_name(player1_name).size > 16
-  valid_name1 = true if Game.validate_name(player1_name).size <= 16
+  puts game.validate_name(player1_name) if game.validate_name(player1_name).size > 16
+  valid_name1 = true if game.validate_name(player1_name).size <= 16
 end
 
 valid_name2 = false
@@ -26,8 +29,8 @@ while valid_name2 == false
   puts "Player 2: What's your name?"
   player2_name = gets.chomp
 
-  puts Game.validate_name(player2_name) if Game.validate_name(player2_name).size > 16
-  valid_name2 = true if Game.validate_name(player2_name).size <= 16
+  puts game.validate_name(player2_name) if game.validate_name(player2_name).size > 16
+  valid_name2 = true if game.validate_name(player2_name).size <= 16
 end
 
 sleep 1
@@ -48,73 +51,56 @@ second_player = first_player == player1_name ? player2_name : player1_name
 player1 = Player.new(first_player.capitalize, "X")
 player2 = Player.new(second_player.capitalize, "O")
 
-# Create the Game and Board objects
-
 puts "#{player1.name} you will start first with character 'X' and #{player2.name} will go second with character 'O'"
 puts
-sleep 2
-
-# Winning combinations array will be in the Game object
-
-# winning_combinations = [
-#   [1, 2, 3],
-#   [4, 5, 6],
-#   [7, 8, 9],
-#   [1, 4, 7],
-#   [2, 5, 8],
-#   [3, 6, 9],
-#   [1, 5, 9],
-#   [3, 5, 7],
-# ]
-
-# Set the current player and initialize a winner variable that we make it true if a player is winning after his turn
-current_player = player1
-# winner = nil
-
-# round = 0
-
-game_board = Board.new
-
-# Start while loop to keep getting inputs until any of the player wins or all the blocks are taken
 sleep 1
-game_board.display
-puts
-puts "#{current_player.name}, please select the position for your move"
 
+restart = true
 loop do
-  selection = gets.chomp.to_i # Validation for valid selection (num should 1 to 9 and not taken by other player)
-  if game_board.validate_selection(selection - 1, game_board.display_board).is_a?(Numeric)
-    game_board.update_board(selection - 1, current_player.sign)
-    break
-  else
-    puts game_board.validate_selection(selection - 1, game_board.display_board)
+
+  game_board = Board.new
+
+  sleep 1
+
+  current_player = player1
+  winner = nil
+  round = 1
+  loop do
+    puts game_board.display
+    puts
+    puts "#{current_player.name}, please select the position for your move"
+
+    # Loop until we get a correct selection and update the board
+    loop do
+      selection = gets.chomp.to_i
+      if game_board.validate_selection(selection - 1, game_board.display_board).is_a?(Numeric)
+        game_board.update_board(selection - 1, current_player.sign)
+        break
+      else
+        puts game_board.validate_selection(selection - 1, game_board.display_board)
+      end
+    end
+
+    winner = current_player if game.winner?(game.indexes_of_sign(current_player.sign, game_board.display_board))
+
+    round += 1
+    break if round > 9 || winner
+
+    current_player = current_player == player1 ? player2 : player1
   end
-end
 
-# replace the number in the array with the selection of the current_player(current_player.sign)
-
-# check if this player is winner after the selection using the winning_combinations array
-# if we have a winner we break the loop
-# If we have a winner we set a variable winner
-winner = current_player
-
-# swap the player after each iteration of the loop
-# current_player = current_player == first_player ? second_player : first_player
-
-# increment the round count (round += 1)
-# break the loop if the round > 8
-
-# After the loop breaks
-
-if winner.nil?
-  # add the posibility to restart the game
-  puts "The result is a tie! Do you want to play again?"
-  # answer = gets.chomp
-  # If the answer is Yes or Y we run the game again (Game.start)
-
-else
   puts
-  game_board.display
+  puts game_board.display
   puts
-  puts "And the winner is #{winner.name}!"
+  sleep 1
+  if winner.nil?
+    puts "The result is a tie! Do you want to play again? (y or yes)"
+    restart = gets.chomp.strip
+  else
+    puts "And the winner is #{winner.name} after #{round - 1} rounds!"
+    puts "Do you want to play again? (y or yes)"
+    restart = gets.chomp.strip
+  end
+
+break unless restart == "y" || restart == "yes"
 end

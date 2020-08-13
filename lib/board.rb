@@ -1,7 +1,8 @@
-require "./lib/utils"
+require './lib/utils'
 
 class Board
   include Utils
+
   attr_accessor :display_board
 
   def initialize(display_board = [1, 2, 3, 4, 5, 6, 7, 8, 9])
@@ -9,11 +10,13 @@ class Board
   end
 
   def display
+    result = ''
     display_board.each_with_index do |element, index|
-      puts " #{element} " if [2, 5, 8].include?(index)
-      puts "-----------" if [2, 5].include?(index)
-      print " #{element} |" unless [2, 5, 8].include?(index)
+      result += " #{element} " if [2, 5, 8].include?(index)
+      result += "\n-----------\n" if [2, 5].include?(index)
+      result += " #{element} |" unless [2, 5, 8].include?(index)
     end
+    result
   end
 
   def update_board(position, sign)
