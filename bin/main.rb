@@ -38,24 +38,24 @@ puts "Today's players will be #{player1_name.capitalize} and #{player2_name.capi
 puts
 sleep 1
 
-puts 'We will randomly select the first player to move in...'
-[3, 2, 1].each do |element|
-  puts element
-  sleep 1
-end
-
-puts
-first_player = rand(1..2) == 1 ? player1_name : player2_name
-second_player = first_player == player1_name ? player2_name : player1_name
-player1 = Player.new(first_player.capitalize, 'X')
-player2 = Player.new(second_player.capitalize, 'O')
-
-puts "#{player1.name} you will start first with character 'X' and #{player2.name} will go second with character 'O'"
-puts
-sleep 1
-
 restart = true
 loop do
+  puts 'We will randomly select the first player to move in...'
+  [3, 2, 1].each do |element|
+    puts element
+    sleep 1
+  end
+
+  puts
+  first_player = rand(1..2) == 1 ? player1_name : player2_name
+  second_player = first_player == player1_name ? player2_name : player1_name
+  player1 = Player.new(first_player.capitalize, 'X')
+  player2 = Player.new(second_player.capitalize, 'O')
+
+  puts "#{player1.name} you will start first with character 'X' and #{player2.name} will go second with character 'O'"
+  puts
+  sleep 1
+
   game_board = Board.new
 
   sleep 1
@@ -92,9 +92,14 @@ loop do
   puts
   sleep 1
   if winner.nil?
-    puts 'The result is a tie! Do you want to play again? (y or yes)'
+    puts 'The result is a tie!'
+    sleep 1
+    puts
+    puts 'Do you want to play again? (y or yes)'
   else
     puts "And the winner is #{winner.name} after #{round - 1} rounds!"
+    sleep 1
+    puts
     puts 'Do you want to play again? (y or yes)'
   end
   restart = gets.chomp.strip
