@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require './lib/player'
+require './lib/game'
 
 puts 'Welcome to our Tic-Tac-Toe game!'
 
@@ -10,37 +11,43 @@ puts 'Developed by Cristian Ceamatu and Amita Roy'
 
 sleep 1
 
-# Create the Player objects based on their name
-puts "Player 1: What's your name?"
-player1_name = gets.chomp # Validate the input and capitalize the first letter
-# Create a new player object with the received name
+valid_name1 = false
+while valid_name1 == false
 
-puts "Player 2: What's your name?"
-player2_name = gets.chomp # Validate the input and capitalize the first letter
+  puts "Player 1: What's your name?"
+  player1_name = gets.chomp
+
+  puts Game.validate_name(player1_name) if Game.validate_name(player1_name).size > 16
+  valid_name1 = true if Game.validate_name(player1_name).size <= 16
+end
+
+valid_name2 = false
+while valid_name2 == false
+
+  puts "Player 2: What's your name?"
+  player2_name = gets.chomp
+
+  puts Game.validate_name(player2_name) if Game.validate_name(player2_name).size > 16
+  valid_name2 = true if Game.validate_name(player2_name).size <= 16
+end
 
 sleep 1
-
+puts
 puts "Today's players will be #{player1_name} and #{player2_name}"
-
+puts
 sleep 1
 
 puts 'We will randomly select the first one to move in...'
-
-# We will add the counter before announcing the first player
 [3, 2, 1].each do |element|
   puts element
   sleep 1
 end
 
-# A random function will assign the character to both players. Like X for player1 and O for player2.
+puts
 first_player = rand(1..2) == 1 ? player1_name : player2_name
 second_player = first_player == player1_name ? player2_name : player1_name
-# After we decide the first player we give the X selection to the Player object
 player1 = Player.new(first_player, 'X')
 player2 = Player.new(second_player, 'O')
-
-p player1
-p player2
 
 # Create the Game and Board objects
 
