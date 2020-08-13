@@ -6,7 +6,14 @@ require './lib/board'
 
 game = Game.new
 
-puts 'Welcome to our Tic-Tac-Toe game!'
+puts 'Welcome to our:'
+print 'TIC '
+sleep 1
+print 'TAC '
+sleep 1
+print 'TOE '
+sleep 1
+print 'Game! '
 
 sleep 1
 
