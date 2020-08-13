@@ -1,6 +1,6 @@
 # The Tic-Tac-Toe
 
-> In this project, we are building a Tic Tac Toe game. The main goal is to put into practice the main concepts of Object Oriented Programming. Particularly, classes and access to their attributes.
+> In this project, we are building a Tic Tac Toe game. The main goal is to put into practice the main concepts of Object Oriented Programming. Particularly, classes, modules and objects and access their attributes.
 
 ## You can see a short demo of the game in the GIF below.
 ![image](.github/captured.gif)
@@ -75,6 +75,7 @@ The **./lib** folder contains subsidiary files that set up all of the classes an
 - **player.rb**, where the Player class is defined.
 - **game.rb**, where the Game class is defined.
 - **board.rb**, where the Board class is defined.
+- **utils.rb**, where the Utils module is defined.
 
 In addition to the above, the repo also contains .rubocop.yml for linting and an ./assets folder to store images used in this README.md file.
 
