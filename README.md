@@ -2,10 +2,10 @@
 
 > In this project, we are building a Tic Tac Toe game. The main goal is to put into practice the main concepts of Object Oriented Programming. Particularly, classes and access to their attributes.
 
-This side-by-side comparative method is seen in the GIF image below.
+## This side-by-side comparative method is seen in the GIF image below.
+![image](.github/captured.gif)
 
-![image](.github/capture.gif)
-
+## The files structure of the project
 ![screenshot](.github/folder-structure.png)
 
 For this project, we wrote a Ruby script that allows the user to play a game of Tic, Tac, Toe in the Terminal.
