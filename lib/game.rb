@@ -3,7 +3,7 @@ require './lib/utils'
 class Game
   include Utils
 
-  @@winning_combinations = [
+  @winning_combinations = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -15,7 +15,7 @@ class Game
   ]
 
   def winner?(indexes_of_sign)
-    @@winning_combinations.any? do |combination|
+    @winning_combinations.any? do |combination|
       return true if combination.all? { |element| indexes_of_sign.include?(element) }
     end
     false

@@ -1,19 +1,18 @@
 #!/usr/bin/env ruby
 
-require "./lib/player"
-require "./lib/game"
-require "./lib/board"
+require './lib/player'
+require './lib/game'
+require './lib/board'
 
 game = Game.new
 
-puts "Welcome to our Tic-Tac-Toe game!"
+puts 'Welcome to our Tic-Tac-Toe game!'
 
 sleep 1
 
-puts "Developed by Cristian Ceamatu and Amita Roy"
+puts 'Developed by Cristian Ceamatu and Amita Roy'
 
 sleep 1
-
 
 valid_name1 = false
 while valid_name1 == false
@@ -39,7 +38,7 @@ puts "Today's players will be #{player1_name.capitalize} and #{player2_name.capi
 puts
 sleep 1
 
-puts "We will randomly select the first one to move in..."
+puts 'We will randomly select the first player to move in...'
 [3, 2, 1].each do |element|
   puts element
   sleep 1
@@ -48,8 +47,8 @@ end
 puts
 first_player = rand(1..2) == 1 ? player1_name : player2_name
 second_player = first_player == player1_name ? player2_name : player1_name
-player1 = Player.new(first_player.capitalize, "X")
-player2 = Player.new(second_player.capitalize, "O")
+player1 = Player.new(first_player.capitalize, 'X')
+player2 = Player.new(second_player.capitalize, 'O')
 
 puts "#{player1.name} you will start first with character 'X' and #{player2.name} will go second with character 'O'"
 puts
@@ -57,7 +56,6 @@ sleep 1
 
 restart = true
 loop do
-
   game_board = Board.new
 
   sleep 1
@@ -94,13 +92,11 @@ loop do
   puts
   sleep 1
   if winner.nil?
-    puts "The result is a tie! Do you want to play again? (y or yes)"
-    restart = gets.chomp.strip
+    puts 'The result is a tie! Do you want to play again? (y or yes)'
   else
     puts "And the winner is #{winner.name} after #{round - 1} rounds!"
-    puts "Do you want to play again? (y or yes)"
-    restart = gets.chomp.strip
+    puts 'Do you want to play again? (y or yes)'
   end
-
-break unless restart == "y" || restart == "yes"
+  restart = gets.chomp.strip
+  break unless %w[y yes].include?(restart)
 end
