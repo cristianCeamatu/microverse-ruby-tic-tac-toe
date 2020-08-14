@@ -1,9 +1,8 @@
-require './lib/utils'
+require_relative 'utils'
 
 class Board
   include Utils
-
-  attr_accessor :display_board
+  attr_reader :display_board
 
   def initialize(display_board = [1, 2, 3, 4, 5, 6, 7, 8, 9])
     @display_board = display_board

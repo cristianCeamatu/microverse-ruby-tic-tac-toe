@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
-require './lib/player'
-require './lib/game'
-require './lib/board'
+require_relative '../lib/player.rb'
+require_relative '../lib/game.rb'
+require_relative '../lib/board.rb'
 
 game = Game.new
 
@@ -46,7 +46,7 @@ puts
 sleep 1
 
 restart = true
-loop do
+loop do # rubocop:disable Metrics/BlockLength
   puts 'We will randomly select the first player to move in...'
   [3, 2, 1].each do |element|
     puts element
