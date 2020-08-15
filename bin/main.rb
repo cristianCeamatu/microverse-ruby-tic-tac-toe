@@ -8,9 +8,6 @@ require_relative '../lib/board.rb'
 
 game = Game.new
 
-p String.modes
-p String.colors
-
 puts 'Welcome to our:'
 print 'TIC '.red.bold
 sleep 1
