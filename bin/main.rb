@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'colorize'
+require_relative '../lib/colors.rb'
 
 require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
@@ -9,41 +9,41 @@ require_relative '../lib/board.rb'
 game = Game.new
 
 puts 'Welcome to our:'
-print 'TIC '.red.bold
+print 'TIC '.red
 sleep 1
-print 'TAC '.red.bold
+print 'TAC '.red
 sleep 1
-print 'TOE '.red.bold
+print 'TOE '.red
 sleep 1
-print 'Game! '.red.bold
+print 'Game! '.red
 
 sleep 1
 
-puts 'Developed by Cristian Ceamatu and Amita Roy'.green.bold
+puts 'Developed by Cristian Ceamatu and Amita Roy'.green
 
 sleep 1
 
 valid_name1 = false
 while valid_name1 == false
-  puts "Player 1: What's your name?".cyan.bold
+  puts "Player 1: What's your name?".blue
   player1_name = gets.chomp
 
-  puts game.validate_name(player1_name).yellow.bold if game.validate_name(player1_name).size > 16
+  puts game.validate_name(player1_name).yellow if game.validate_name(player1_name).size > 16
   valid_name1 = true if game.validate_name(player1_name).size <= 16
 end
 
 valid_name2 = false
 while valid_name2 == false
-  puts "Player 2: What's your name?".cyan.bold
+  puts "Player 2: What's your name?".blue
   player2_name = gets.chomp
 
-  puts game.validate_name(player2_name).yellow.bold if game.validate_name(player2_name).size > 16
+  puts game.validate_name(player2_name).yellow if game.validate_name(player2_name).size > 16
   valid_name2 = true if game.validate_name(player2_name).size <= 16
 end
 
 sleep 1
 puts
-puts "Today's players will be #{player1_name.capitalize} and #{player2_name.capitalize}".red.bold
+puts "Today's players will be #{player1_name.capitalize} and #{player2_name.capitalize}".red
 puts
 sleep 1
 
@@ -51,7 +51,7 @@ restart = true
 loop do # rubocop:disable Metrics/BlockLength
   puts 'We will randomly select the first player to move in...'
   [3, 2, 1].each do |element|
-    puts element.to_s.green.bold
+    puts element.to_s.green
     sleep 1
   end
 
@@ -73,9 +73,9 @@ loop do # rubocop:disable Metrics/BlockLength
   winner = nil
   round = 1
   loop do
-    puts game_board.display.blue.bold
+    puts game_board.display.light_blue
     puts
-    puts "#{current_player.name}, please select the position for your move".cyan.bold
+    puts "#{current_player.name}, please select the position for your move".blue
 
     # Loop until we get a correct selection and update the board
     loop do
@@ -84,7 +84,7 @@ loop do # rubocop:disable Metrics/BlockLength
         game_board.update_board(selection - 1, current_player.sign)
         break
       else
-        puts game_board.validate_selection(selection - 1, game_board.display_board).yellow.bold
+        puts game_board.validate_selection(selection - 1, game_board.display_board).yellow
       end
     end
 
@@ -97,13 +97,13 @@ loop do # rubocop:disable Metrics/BlockLength
   end
 
   puts
-  puts game_board.display.blue.bold
+  puts game_board.display.light_blue
   puts
   sleep 1
   if winner.nil?
-    puts 'The result is a tie!'.red.bold
+    puts 'The result is a tie!'.red
   else
-    puts 'And the winner is ' << winner.name.red.bold << ' after ' << (round - 1).to_s.red.bold << ' rounds!'
+    puts 'And the winner is ' << winner.name.red << ' after ' << (round - 1).to_s.red << ' rounds!'
   end
   sleep 1
   puts
