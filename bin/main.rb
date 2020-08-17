@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require_relative '../lib/colors.rb'
-
 require_relative '../lib/player.rb'
 require_relative '../lib/game.rb'
 require_relative '../lib/board.rb'
@@ -58,8 +57,8 @@ loop do # rubocop:disable Metrics/BlockLength
   puts
   first_player = rand(1..2) == 1 ? player1_name : player2_name
   second_player = first_player == player1_name ? player2_name : player1_name
-  player1 = Player.new(first_player.capitalize, 'X')
-  player2 = Player.new(second_player.capitalize, 'O')
+  player1 = Player.new(first_player.capitalize, 'X'.red)
+  player2 = Player.new(second_player.capitalize, 'O'.yellow)
 
   puts "#{player1.name} you will start first with character 'X' and #{player2.name} will go second with character 'O'"
   puts
@@ -73,7 +72,7 @@ loop do # rubocop:disable Metrics/BlockLength
   winner = nil
   round = 1
   loop do
-    puts game_board.display.light_blue
+    puts game_board.display
     puts
     puts "#{current_player.name}, please select the position for your move".blue
 
@@ -97,7 +96,7 @@ loop do # rubocop:disable Metrics/BlockLength
   end
 
   puts
-  puts game_board.display.light_blue
+  puts game_board.display
   puts
   sleep 1
   if winner.nil?
