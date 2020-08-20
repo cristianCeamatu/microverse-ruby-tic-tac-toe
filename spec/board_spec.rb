@@ -13,6 +13,10 @@ describe Board do
     it 'return a string based on the current board' do
       expect(board.display.class).to eql(String)
     end
+
+    it 'return a string containing 9 alphanumeric elements' do
+      expect(board.display.scan(/[a-zA-Z0-9]/).length).to eql(9)
+    end
   end
 
   describe '#update_board' do
