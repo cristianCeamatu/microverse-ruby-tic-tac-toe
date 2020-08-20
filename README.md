@@ -79,6 +79,18 @@ The **./lib** folder contains subsidiary files that set up all of the classes an
 
 In addition to the above, the repo also contains .rubocop.yml for linting.
 
+## Tests
+
+1. Open Terminal
+
+2. Install RSpec on your system by running:
+
+    `gem install rspec`
+
+3. Run the tests with the command:
+
+    `rspec`
+
 ## Authors
 
 👤 **Cristian Viorel Ceamatu**
