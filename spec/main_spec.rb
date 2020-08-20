@@ -10,7 +10,7 @@ describe 'Main game logic' do
   let(:player2) { Player.new('Ami', 'O') }
   let(:player_sign_indexes) { [0, 4, 3] }
   let(:player_winner_sign_indexes) { [0, 1, 2] }
-  
+
   it 'expects `game` object to be an instance of Game' do
     expect(game).to be_a Game
   end
